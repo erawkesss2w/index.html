@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>ESP Finder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:sans-serif;direction:rtl;background:#0f172a;color:#fff;padding:20px}
+.box{max-width:450px;margin:auto;background:#111827;padding:20px;border-radius:14px}
+input,button{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:none}
+button{background:#2563eb;color:#fff}
+a{color:#38bdf8;word-break:break-all}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h3>🔬 نقشه الکترواستاتیکی مولکول</h3>
+<input id="mol" placeholder="مثلاً: Water">
+<button onclick="go()">جستجو</button>
+<div id="out"></div>
+</div>
+
+<script>
+function go(){
+  const m=document.getElementById("mol").value.trim();
+  if(!m){alert("نام مولکول را وارد کن");return;}
+  const q=encodeURIComponent(m+" electrostatic potential map molecule");
+  const link="https://duckduckgo.com/?q="+q+"&iax=images&ia=images";
+  document.getElementById("out").innerHTML=
+    <p>🔗 روی لینک بزن:</p><a href="${link}" target="_blank">${link}</a>;
+}
+</script>
+
+</body>
+</html>
